@@ -7,7 +7,7 @@ let level = 0;
 
 let h2 = document.querySelector("h2");
 
-document.addEventListener("keypress", function () {
+function startGame() {
     if (!started) {
         console.log("Game started");
         started = true;
@@ -15,7 +15,11 @@ document.addEventListener("keypress", function () {
         gameseq = [];
         levelup();
     }
-});
+}
+
+document.addEventListener("keypress", startGame);
+
+document.addEventListener("touchstart", startGame, { once: true });
 
 function gameFlash(btn) {
     btn.classList.add("flash");
@@ -79,3 +83,4 @@ function reset() {
     userseq = [];
     level = 0;
 }
+
